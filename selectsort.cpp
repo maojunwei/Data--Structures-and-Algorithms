@@ -1,6 +1,7 @@
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//×î¼òµ¥ÅÅÐò
 #include<iostream>
 #include<stdio.h>
+#include<stdlib.h>
 #define maxsize 10
 using namespace std;
 typedef struct arra
@@ -14,7 +15,7 @@ void swap(sqlist *l,int i,int j)
 	l->r[i] = l->r[j];
 	l->r[j] = temp;
 }
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½&&Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//×î¼òµ¥ÅÅÐò&&Ñ¡ÔñÅÅÐò
 void selectsort(sqlist *l)
 {
   int i,j;
@@ -23,7 +24,7 @@ void selectsort(sqlist *l)
 		  if(l->r[j] < l->r[i])
 			  swap(l,i,j);
 }
-//ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//¼òµ¥Ñ¡ÔñÅÅÐò
 void selectsort0(sqlist *l)
 {
   int i,j;
@@ -40,7 +41,7 @@ void selectsort0(sqlist *l)
 		  swap(l,min,i);    
   }
 }
-//Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
+//Ã°ÅÝÅÅÐò³õÊ¼°æ
 void bubblesort0(sqlist *l)
 {
   int i,j;
@@ -53,7 +54,7 @@ void bubblesort0(sqlist *l)
 		 // if(l->r[j]>l->r[j+1])
 			 // swap(l,j,j+1);
 }
-//Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½
+//Ã°ÅÝÅÅÐò¸Ä½ø°æ
 void bubblesort(sqlist *l)
 {
   int i,j;
@@ -70,13 +71,13 @@ void bubblesort(sqlist *l)
 	 
   }
 }
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//²åÈëÅÅÐò
 void insertsort(sqlist *l)
 {
   int i,j,k,temp;
   for(i=1;i<l->length;i++)
   {
-	  if(l->r[i]<l->r[i-1])//ï¿½ï¿½Òªï¿½Ô²ï¿½Ç¿
+	  if(l->r[i]<l->r[i-1])//±ØÒªÐÔ²»Ç¿
 	  {
 		 // k = i;
 	      temp = l->r[i];
@@ -87,7 +88,7 @@ void insertsort(sqlist *l)
 	  }
   }
 }
-//Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//Ï£¶ûÅÅÐò
 void shellsort(sqlist *l)
 {
 	int len,gap;
@@ -111,7 +112,7 @@ void shellsort(sqlist *l)
 	}
 	while(gap > 1);
 }
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//¿ìËÙÅÅÐò
 int partition(sqlist *l,int low,int high)
 {
 	int pv = l->r[low];
@@ -140,16 +141,16 @@ void quicksort(sqlist *l)
 	qsort(l,0,l->length-1);
 }
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-void Heapadjust(sqlist *l,int s,int m) //ï¿½ï¿½ï¿½ï¿½ï¿½ó¶¥¶ï¿½||ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½
+//¶ÑÅÅÐò
+void Heapadjust(sqlist *l,int s,int m) //¹¹½¨´ó¶¥¶Ñ||£¨µ÷Õû£º½«¼üÖµ´óµÄ½áµãÍùÉÏÒÆ£©
 
 {
 	int temp,j;
 	temp = l->r[s-1];
-	for(j = 2*s;j<=m;j*=2)  //ï¿½Ø¹Ø¼ï¿½ï¿½Ö½Ï´ï¿½Äºï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¸Ñ¡
+	for(j = 2*s;j<=m;j*=2)  //ÑØ¹Ø¼ü×Ö½Ï´óµÄº¢×Ó½áµãÏòÏÂÉ¸Ñ¡
 	{
 	  if(j<m && l->r[j-1] < l->r[j])
-		  j++; //ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½
+		  j++; //µÚj¸ö½áµã
 	  if(temp >= l->r[j-1])
 		  break;
 	  l->r[s-1] = l->r[j-1];
@@ -162,16 +163,16 @@ void Heapadjust(sqlist *l,int s,int m) //ï¿½ï¿½ï¿½ï¿½ï¿½ó¶¥¶ï¿½||ï¿½ï¿½ï¿½ï¿½ï¿½
 void Heapsort(sqlist *l)
 {
 	int i;
-	for(i = (l->length )/2;i>0;i--)  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½Îªï¿½ó¶¥¶ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½)
+	for(i = (l->length )/2;i>0;i--)  //´ýÅÅÐòÐòÁÐ¹¹½¨Îª´ó¶¥¶Ñ(½áµã±àºÅ)
 		Heapadjust(l,i,l->length);
-	for(i = l->length;i>1;i--)  //ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Ä©Î²Ôªï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	for(i = l->length;i>1;i--)  //¸ù½ÚµãÓëÄ©Î²ÔªËØ½»»»£¬µ÷Õû¶¥¶Ñ
 	{
 	    swap(l,0,i-1);
 		Heapadjust(l,1,i-1);
 	}
 }
 
-//ï¿½é²¢ï¿½ï¿½ï¿½ï¿½
+//¹é²¢ÅÅÐò
 //void Merge(sqlist *l1,sqlist *l2,int low,int mid,int high)
 //{
 //	int i = low; 
@@ -195,7 +196,7 @@ void Heapsort(sqlist *l)
 //	  l2->r[low] = l1->r[low];
 //  else
 //  {
-//     sqlist *l = (sqlist*)(malloc(sizeof(sqlist)));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ int *space = (int*)malloc(sizeof(int) * len)
+//     sqlist *l = (sqlist*)(malloc(sizeof(sqlist)));//Êý×éÐÎÊ½£º int *space = (int*)malloc(sizeof(int) * len)
 //	 int mid = (low+high)/2;
 //	 if(l != NULL)
 //	 {
@@ -234,7 +235,7 @@ void Heapsort(sqlist *l)
 	   s2[low] = s1[low];
    else
    {
-      //sqlist *l = (sqlist*)(malloc(sizeof(sqlist)));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ int *space = (int*)malloc(sizeof(int) * len)
+      //sqlist *l = (sqlist*)(malloc(sizeof(sqlist)));//Êý×éÐÎÊ½£º int *space = (int*)malloc(sizeof(int) * len)
 	  int s[maxsize];
 	  int mid = (low+high)/2;
 	
@@ -254,12 +255,12 @@ int main()
 	sqlist L = {{9,1,5,8,3,7,4,6,2,3},10};//
 	sqlist *l;
 	l = &L;
-	//int len = sizeof(l->r)/sizeof(*(l->r)); aï¿½ï¿½ï¿½ï¿½ï¿½Ð¡
-	cout<<"ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ð£ï¿½"<<endl;
+	//int len = sizeof(l->r)/sizeof(*(l->r)); aÊý×é´óÐ¡
+	cout<<"³õÊ¼ÐòÁÐ£º"<<endl;
 	for(int i = 0;i < l->length;i++)	
 	   cout<<l->r[i]<<" ";
 	cout<<endl;
-	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ÅÅÐò²âÊÔ
 	//selectsort(l);
 	//selectsort0(l);
 	//bubblesort0(l);
@@ -269,7 +270,7 @@ int main()
 	//quicksort(l);
 	//Mergesort(l);
 	Heapsort(l);
-	cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½"<<endl;
+	cout<<"ÅÅÐòºóµÄÐòÁÐ£º"<<endl;
 	for(int i = 0;i < l->length;i++)	
 	   cout<<l->r[i]<<" ";
 	cout<<endl;
