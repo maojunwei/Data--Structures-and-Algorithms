@@ -1,25 +1,26 @@
 /*
 #include<stdlib.h>
 void *malloc(unsigned int size)
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Ä¶ï¿½Ì¬ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªsizeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ä¡£
-ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö·ï¿½ï¿½Ö¸ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½Î´ï¿½Ü³É¹ï¿½Ö´ï¿½Ð£ï¿½ï¿½ï¿½ï¿½Ú´æ²»ï¿½ã£©ï¿½ï¿½ï¿½ò·µ»ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë£¨NULLï¿½ï¿½
+×÷ÓÃÊÇÔÚÄÚ´æµÄ¶¯Ì¬´æ´¢Çø·ÖÅäÒ»¸ö³¤¶ÈÎªsizeµÄÁ¬Ðø¿Õ¼ä¡£
+·µ»ØµÄÊÇÒ»¸öÖ¸Ïò·ÖÅäÓòÆðÊ¼µØÖ·µÄÖ¸Õë£¬Èç¹û´Ëº¯ÊýÎ´ÄÜ³É¹¦Ö´ÐÐ£¨ÈçÄÚ´æ²»×ã£©£¬Ôò·µ»ØÒ»¸ö¿ÕÖ¸Õë£¨NULL£©
 void *calloc(unsigned n,unsigned size)
-ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªsizeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ä¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö·ï¿½ï¿½Ö¸ï¿½ë£»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä²»ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½NULL.
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½pÖ¸ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½â²¿ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ü±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+×÷ÓÃÊÇ·ÖÅän¸ö³¤¶ÈÎªsizeµÄÁ¬Ðø¿Õ¼ä¡£º¯Êý·µ»ØÒ»¸öÖ¸Ïò·ÖÅäÓòÆðÊ¼µØÖ·µÄÖ¸Õë£»Èç¹û·ÖÅä²»³É¹¦£¬·µ»ØNULL.
+void free(void *p)
+×÷ÓÃÊÇÊÍ·ÅÓÉpÖ¸ÏòµÄÄÚ´æÇø£¬Ê¹Õâ²¿·ÖÄÚ´æÇøÄÜ±»ÆäËû±äÁ¿Ê¹ÓÃ
 */
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//Á´±í³ÌÐò£º
 #include<stdlib.h>
 #include<iostream>
 using namespace std;
-typedef int Elemtype;  //ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
+typedef int Elemtype;  //¼Ù¶¨½áµãÊý¾ÝÓòÊý¾ÝÀàÐÍÎªÕûÐÍ
 typedef struct List
 {
   Elemtype data;
   struct List *next;
 }*link,Node;
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-link create1(int n)  //ï¿½ï¿½Ó·ï¿½Êµï¿½ï¿½
+//´´½¨Á´±í
+link create1(int n)  //²å¶Ó·¨ÊµÏÖ
 {
 	link p;
 	link head;
@@ -27,13 +28,13 @@ link create1(int n)  //ï¿½ï¿½Ó·ï¿½Êµï¿½ï¿½
 	//Elemtype newdata;
 	head = (link)malloc(sizeof(Node));
 	head->next = NULL;
-    for(i=1;i<=n;i++)  //ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½ï¿½ï¿½
+    for(i=1;i<=n;i++)  //´´½¨n¸ö½áµã
 	{ 
 	  Elemtype newdata;
-	  p = (link)malloc(sizeof(Node));   //ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½
-      if(p == NULL)  //ï¿½ï¿½ï¿½É²ï¿½ï¿½É¹ï¿½
+	  p = (link)malloc(sizeof(Node));   //¿ª±ÙÐÂ½áµã
+      if(p == NULL)  //Éú³É²»³É¹¦
 		  break;
-	  cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½"<<endl;
+	  cout<<"ÇëÊäÈë½áµãÊýÖµ£º"<<endl;
 	  cin>>newdata;
 	  p->data = newdata;  
 	  p->next = head->next;
@@ -41,7 +42,7 @@ link create1(int n)  //ï¿½ï¿½Ó·ï¿½Êµï¿½ï¿½
 	}
 	return head;
 }
-link create2(int n)//Î²ï¿½å·¨Êµï¿½ï¿½
+link create2(int n)//Î²²å·¨ÊµÏÖ
 {
   link head;
   link p,pre;
@@ -52,14 +53,14 @@ link create2(int n)//Î²ï¿½å·¨Êµï¿½ï¿½
   {
     p = (link)malloc(sizeof(Node));
 	pre->next = p;
-	cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½"<<endl;
+	cout<<"ÇëÊäÈë½áµãÊýÖµ£º"<<endl;
 	cin>>p->data;
 	pre = p;
   }
   p->next = NULL;
   return head;
 }
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ê¾
+//Á´±í½áµãÊýÖµÏÔÊ¾
 void display(link head)
 {
   link p;
@@ -68,12 +69,12 @@ void display(link head)
   while(p->next != NULL)
   {
 	p = p->next;
-	cout<<"ï¿½ï¿½"<<i<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª"<<p->data<<endl;
+	cout<<"µÚ"<<i<<"¸ö½áµãÊýÖµÎª"<<p->data<<endl;
 	i++;
   }
 }
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½È¡
-int read(link head,int i,Elemtype *e)//ï¿½ï¿½È¡ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ(1,2)
+//Á´±íÊýÖµ¶ÁÈ¡
+int read(link head,int i,Elemtype *e)//¶ÁÈ¡µÚi¸ö½áµãµÄÊýÖµ(1,2)
 {
   link p;
   p = head->next;
@@ -90,7 +91,7 @@ int read(link head,int i,Elemtype *e)//ï¿½ï¿½È¡ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	*e = p->data;
 	return 1;
 }
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//²åÈë½áµã
 link insert(link head,int i,Elemtype e)
 {
   link p,pre;
@@ -107,7 +108,7 @@ link insert(link head,int i,Elemtype e)
   p->next = pre;
   return head;
 }
-//É¾ï¿½ï¿½ï¿½ï¿½ï¿½
+//É¾³ý½áµã
 link del(link head,int i)
 {
   link p,pre;
@@ -123,7 +124,7 @@ link del(link head,int i)
   free(pre);
   return head;
  }
-//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
+//»ñÈ¡Á´±íµÄ³¤¶È
 int getlen(link head)
 {
   link p;
@@ -136,7 +137,7 @@ int getlen(link head)
   }
   return i;
 }
-//ï¿½ï¿½ï¿½Ò½ï¿½ï¿½Ôªï¿½ï¿½Xï¿½ï¿½Î»ï¿½ï¿½
+//²éÕÒ½áµãÔªËØXµÄÎ»ÖÃ
 int locate(link head,Elemtype a)
 {
   link p;
@@ -152,7 +153,7 @@ int locate(link head,Elemtype a)
   else
 	  return i+1;
 }
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//Á¬½ÓÁ½¸öÁ´±í
 link connect(link head1,link head2)
 {
   link p;
@@ -165,7 +166,7 @@ link connect(link head1,link head2)
   return head1;
 }
 
-//ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½
+//ÊÍ·ÅÁ´±í
 link setnull(link head)
 {
   link p,q;
@@ -179,7 +180,7 @@ link setnull(link head)
   head->next = NULL;
   return head;
 }
-//ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
+//·´×ªÁ´±í
 link revised(link head)
 {
   link node;
@@ -208,34 +209,34 @@ int main()
   int n2 = 5;
   Elemtype d;
   int wz;
-  cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»"<<endl;
+  cout<<"´´½¨Á´±íÒ»"<<endl;
   head1 = create1(n1);
-  cout<<"ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ò»,"<<"ï¿½ï¿½ï¿½ï¿½Îª:"<<getlen(head1)<<endl;
+  cout<<"ÏÔÊ¾Á´±íÒ»,"<<"³¤¶ÈÎª:"<<getlen(head1)<<endl;
   display(head1);
-  cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"<<endl;
+  cout<<"´´½¨Á´±í¶þ"<<endl;
   head2 = create2(n2);
-  cout<<"ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½,"<<"ï¿½ï¿½ï¿½ï¿½Îª:"<<getlen(head2)<<endl;
+  cout<<"ÏÔÊ¾Á´±í¶þ,"<<"³¤¶ÈÎª:"<<getlen(head2)<<endl;
   display(head2);
-  cout<<"ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ"<<endl;
+  cout<<"¶ÁÈ¡Á´±í½áµãÖµ"<<endl;
   if(read(head2,3,&d))
-	  cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª"<<d<<endl;
+	  cout<<"Á´±í¶þµÚÈý¸ö½áµãÊýÖµÎª"<<d<<endl;
   del(head1,2);
   insert(head2,3,66);
-  cout<<"ï¿½ï¿½ï¿½ï¿½Ò»É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,"<<"ï¿½ï¿½ï¿½ï¿½Îª:"<<getlen(head1)<<endl;
+  cout<<"Á´±íÒ»É¾³ý²Ù×÷,"<<"³¤¶ÈÎª:"<<getlen(head1)<<endl;
   display(head1);
-  cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,"<<"ï¿½ï¿½ï¿½ï¿½Îª:"<<getlen(head2)<<endl;
+  cout<<"Á´±í¶þ²åÈë½áµã,"<<"³¤¶ÈÎª:"<<getlen(head2)<<endl;
   display(head2);
   wz = locate(head2,6);
-  cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Öµ6ï¿½Úµï¿½"<<wz<<"ï¿½ï¿½ï¿½ï¿½ï¿½"<<endl;
-  cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"<<endl;
+  cout<<"Á´±í¶þÖÐÔªËØÖµ6ÔÚµÚ"<<wz<<"¸ö½áµã"<<endl;
+  cout<<"Á¬½ÓÁ´±íÒ»ºÍÁ´±í¶þ"<<endl;
   head1 = connect(head1,head2);
   display(head1);
-  cout<<"ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,"<<"ï¿½ï¿½ï¿½ï¿½Îª:"<<getlen(head1)<<endl;
+  cout<<"Á´±íÒ»Á¬½ÓÁ´±í¶þ²Ù×÷,"<<"³¤¶ÈÎª:"<<getlen(head1)<<endl;
   head1 = revised(head1);
-  cout<<"ï¿½ï¿½ï¿½ï¿½×ª"<<endl;
+  cout<<"Á´±í·´×ª"<<endl;
   display(head1);
   setnull(head1);
-  cout<<"ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Õ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,"<<"ï¿½ï¿½ï¿½ï¿½Îª:"<<getlen(head1)<<endl;
+  cout<<"Á´±íÒ»Çå¿Õ²Ù×÷²Ù×÷,"<<"³¤¶ÈÎª:"<<getlen(head1)<<endl;
   system("pause");
   return 0;
 }
