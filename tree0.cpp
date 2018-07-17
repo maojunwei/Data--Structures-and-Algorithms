@@ -11,13 +11,13 @@ typedef struct chaintree
   struct chaintree *right;
 } cttype,*Ctree;
 
-//³õÊ¼»¯¶ş²æÊ÷£¬Ìí¼Ó¸ù½Úµã
+//åˆå§‹åŒ–äºŒå‰æ ‘ï¼Œæ·»åŠ æ ¹èŠ‚ç‚¹
 Ctree inittree()
 {
  Ctree tnode;
  if(tnode = Ctree(malloc(sizeof(cttype))))
  {
-   cout<<"ÇëÊäÈëÒ»¸ö¸ù½ÚµãÊı¾İ"<<endl;
+   cout<<"è¯·è¾“å…¥ä¸€ä¸ªæ ¹èŠ‚ç‚¹æ•°æ®"<<endl;
    cin>>tnode->data;
    tnode->left = NULL;
    tnode->right = NULL;
@@ -25,7 +25,7 @@ Ctree inittree()
  }
  return NULL;
 }
-//²éÕÒ½áµã
+//æŸ¥æ‰¾ç»“ç‚¹
 Ctree treefindnode(Ctree treenode,telemtype td)
 {
   Ctree ptr;
@@ -46,7 +46,7 @@ Ctree treefindnode(Ctree treenode,telemtype td)
 	 }
    }
 }
-//Ìí¼Ó½áµã
+//æ·»åŠ ç»“ç‚¹
 void addtreenode(Ctree tree)
 {
 	Ctree pnode,parent;
@@ -55,30 +55,30 @@ void addtreenode(Ctree tree)
 
 	if(pnode = Ctree(malloc(sizeof(cttype))))
 	{
-	  cout<<"ÇëÊäÈë½áµãÊı¾İ"<<endl;
+	  cout<<"è¯·è¾“å…¥ç»“ç‚¹æ•°æ®"<<endl;
 	  cin>>pnode->data;
 	  pnode->left = NULL;
 	  pnode->right = NULL;
 	  
-	  cout<<"ÊäÈë¸Ã½áµã¸¸½áµãÊı¾İ£º"<<endl;
+	  cout<<"è¾“å…¥è¯¥ç»“ç‚¹çˆ¶ç»“ç‚¹æ•°æ®ï¼š"<<endl;
 	  cin>>data;
 	  parent = treefindnode(tree,data);
 	  if(!parent)
 	  {
-	    cout<<"Î´ÕÒµ½Æä¸¸½áµã"<<endl;
+	    cout<<"æœªæ‰¾åˆ°å…¶çˆ¶ç»“ç‚¹"<<endl;
 		free(pnode);
 		return;
 	   }
 	  do
 	  {
-		  cout<<"1.Ìí¼Ó¸Ã½áµãµ½×ó×ÓÊ÷"<<endl;
-		  cout<<"2.Ìí¼Ó¸Ã½áµãµ½ÓÒ×ÓÊ÷"<<endl;
+		  cout<<"1.æ·»åŠ è¯¥ç»“ç‚¹åˆ°å·¦å­æ ‘"<<endl;
+		  cout<<"2.æ·»åŠ è¯¥ç»“ç‚¹åˆ°å³å­æ ‘"<<endl;
 		  cin>>xz;
 		  if(xz == 1 || xz == 2)
 		  {
 			if (parent == NULL)
 			{
-			  cout<<"²»´æÔÚ¸¸½áµã£¬ÇëÏÈÉèÖÃ¸¸½áµã"<<endl;
+			  cout<<"ä¸å­˜åœ¨çˆ¶ç»“ç‚¹ï¼Œè¯·å…ˆè®¾ç½®çˆ¶ç»“ç‚¹"<<endl;
 			}
 			else
 			{
@@ -86,25 +86,25 @@ void addtreenode(Ctree tree)
 			  {
 				  case 1:
 					  if(parent->left)
-						  cout<<"×ó×ÓÊ÷²»Îª¿Õ"<<endl;
+						  cout<<"å·¦å­æ ‘ä¸ä¸ºç©º"<<endl;
 					  else
 						  parent->left = pnode;
 					  break;
 				  case 2:
 					  if(parent->right)
-						  cout<<"ÓÒ×ÓÊ÷²»Îª¿Õ"<<endl;
+						  cout<<"å³å­æ ‘ä¸ä¸ºç©º"<<endl;
 					  else
 						  parent->right = pnode;
 					  break;
 				  default:
-					  cout<<"ÎŞĞ§²ÎÊı"<<endl;
+					  cout<<"æ— æ•ˆå‚æ•°"<<endl;
 				}
 			 }
 		   }
 	  }while(xz != 1 && xz != 2);
 	}
 }
-//»ñÈ¡×ó×ÓÊ÷
+//è·å–å·¦å­æ ‘
 Ctree getleft(Ctree treenode)
 {
   if(treenode)
@@ -112,7 +112,7 @@ Ctree getleft(Ctree treenode)
   else
 	  return NULL;
 }
-//»ñÈ¡ÓÒ×ÓÊ÷
+//è·å–å³å­æ ‘
 Ctree getright(Ctree treenode)
 {
    if(treenode)
@@ -120,7 +120,7 @@ Ctree getright(Ctree treenode)
    else
 	   return NULL;
 }
-//ÅĞ¶Ï¿ÕÊ÷
+//åˆ¤æ–­ç©ºæ ‘
 int Treeisempty(Ctree treenode)
 {
    if(treenode)
@@ -128,7 +128,7 @@ int Treeisempty(Ctree treenode)
    else
 	   return 0;
 }
-//¼ÆËãÊ÷µÄÉî¶È
+//è®¡ç®—æ ‘çš„æ·±åº¦
 int treedepth(Ctree treenode)
 {
   int depleft,depright;
@@ -144,7 +144,7 @@ int treedepth(Ctree treenode)
 		  return depright+1;
    }
 }
-//Çå¿Õ¶ş²æÊ÷
+//æ¸…ç©ºäºŒå‰æ ‘
 void Cleartree(Ctree treenode)
 {
   if(treenode)
@@ -155,15 +155,15 @@ void Cleartree(Ctree treenode)
 	  //treenode = NULL;
   }
 }
-//ÏÔÊ¾ÏÔÊ¾µ±Ç°½áµãÊı¾İ
+//æ˜¾ç¤ºæ˜¾ç¤ºå½“å‰ç»“ç‚¹æ•°æ®
 void treenodedata(Ctree treenode)
 {
 	if(treenode)
 		cout<<treenode->data;
 	else
-		cout<<"Ê÷Îª¿Õ"<<endl;
+		cout<<"æ ‘ä¸ºç©º"<<endl;
 }
-//°´²ã±éÀú
+//æŒ‰å±‚éå†
 void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
 {
   Ctree p;
@@ -191,7 +191,29 @@ void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
 	  }
   }
 }
-//ÏÈĞò±éÀúËã·¨
+//æŒ‰å±‚éå†,é˜Ÿåˆ—å®ç°
+void leveltree1(Ctree treenode)
+{
+	std::queue<Ctree> q;
+	Ctree p;
+	if(treenode == NULL)
+	{
+		cout<<"æ ‘ä¸ºç©º"<<endl;
+		return;
+	}
+	q.push(treenode);
+	while(!q.empty())
+	{
+		p = q.front();
+		cout<<p->data;
+		q.pop();
+		if(p->left)
+			q.push(p->left);
+		if(p->right)
+			q.push(p->right);	
+	}
+}
+//å…ˆåºéå†ç®—æ³•
   void dlrtree(Ctree treenode,void(*treenodedata)(Ctree p))
   {
 	  if(treenode)
@@ -202,7 +224,7 @@ void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
 	  }
     
   }
-//·Çµİ¹éÊµÏÖÇ°Ğò±éÀú
+//éé€’å½’å®ç°å‰åºéå†
   void dlrtree1(Ctree treenode)
   {
 	  std::stack<Ctree> s;
@@ -226,7 +248,7 @@ void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
   }
 
 
-//ÖĞĞò±éÀú
+//ä¸­åºéå†
   void ldrtree(Ctree treenode,void(*treenodedata)(Ctree p))
   {
 	if(treenode)
@@ -237,7 +259,7 @@ void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
 	
 	}
   }
-//·Çµİ¹éÊµÏÖÖĞĞò±éÀú
+//éé€’å½’å®ç°ä¸­åºéå†
   void ldrtree1(Ctree treenode)
   {
 	  std::stack<Ctree> s;
@@ -258,7 +280,7 @@ void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
 		}
 	  }  
   }
-//ºóĞò±éÀú
+//ååºéå†
   void lrdtree(Ctree treenode,void(*treenodedata)(Ctree p))
   {
     if(treenode)
@@ -268,7 +290,7 @@ void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
 		treenodedata(treenode);
 	}
   }
-  //·Çµİ¹éÊµÏÖºóĞò±éÀú
+  //éé€’å½’å®ç°ååºéå†
   void lrdtree1(Ctree treenode)
   {
 	  std::stack<Ctree> s;
@@ -293,7 +315,7 @@ void leveltree(Ctree treenode,void(*treenodedata)(Ctree p))
 		  }  
 	  }  
   }
-//Ê÷²Ù×÷Ê¾Àı
+//æ ‘æ“ä½œç¤ºä¾‹
 int main()
   {
 	Ctree root = NULL;
@@ -303,9 +325,9 @@ int main()
 	root = inittree();
 	do
 	{
-		cout<<"²Ëµ¥"<<endl;
-		cout<<"0:ÍË³ö"<<endl;
-		cout<<"1:Ìí¼Ó¶ş²æÊ÷½áµã"<<endl;
+		cout<<"èœå•"<<endl;
+		cout<<"0:é€€å‡º"<<endl;
+		cout<<"1:æ·»åŠ äºŒå‰æ ‘ç»“ç‚¹"<<endl;
 		cin>>men;
 		switch(men)
 		{
@@ -317,37 +339,37 @@ int main()
 		default:;
 		}
 	}while(men != 0);
-//±éÀú
+//éå†
 	do
 	{
-	 cout<<"±éÀú¶ş²æÊ÷£º"<<endl;
-	 cout<<"1:ÏÈĞò±éÀú"<<endl;
-	 cout<<"2:ÖĞĞò±éÀú"<<endl;
-	 cout<<"3:ºóĞò±éÀú"<<endl;
-	 cout<<"4:°´²ã±éÀú"<<endl;
+	 cout<<"éå†äºŒå‰æ ‘ï¼š"<<endl;
+	 cout<<"1:å…ˆåºéå†"<<endl;
+	 cout<<"2:ä¸­åºéå†"<<endl;
+	 cout<<"3:ååºéå†"<<endl;
+	 cout<<"4:æŒ‰å±‚éå†"<<endl;
 	 cin>>men;
 	 switch(men)
 	 {
 	 case 1:
-		 cout<<"ÏÈĞò±éÀú½á¹û£º";
+		 cout<<"å…ˆåºéå†ç»“æœï¼š";
 		 //dlrtree(root,treenodedatal);
 		 dlrtree1(root);
 		 cout<<endl;
 		 break;
 	 case 2:
-		 cout<<"ÖĞĞò±éÀú½á¹û£º";
+		 cout<<"ä¸­åºéå†ç»“æœï¼š";
 		 //ldrtree(root,treenodedatal);
 		 ldrtree1(root);
 		 cout<<endl;
 		 break;
 	 case 3:
-		 cout<<"ºóĞò±éÀú½á¹û£º";
+		 cout<<"ååºéå†ç»“æœï¼š";
 		 //lrdtree(root,treenodedatal);
 		 lrdtree1(root);
 		 cout<<endl;
 		 break;
 	 case 4:
-		 cout<<"°´²ã±éÀú½á¹û£º";
+		 cout<<"æŒ‰å±‚éå†ç»“æœï¼š";
 		 leveltree(root,treenodedatal);
 		 cout<<endl;
 		 break;
@@ -355,8 +377,8 @@ int main()
 		 break;
 	 }
 	}while(men != 0);
-	//Ê÷µÄÉî¶È
-	cout<<"¶ş²æÊ÷Éî¶ÈÎª£º"<<treedepth(root)<<endl;
+	//æ ‘çš„æ·±åº¦
+	cout<<"äºŒå‰æ ‘æ·±åº¦ä¸ºï¼š"<<treedepth(root)<<endl;
 	Cleartree(root);
 	root = NULL;
 	system("pause");
